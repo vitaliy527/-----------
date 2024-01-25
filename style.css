@@ -1,4 +1,5 @@
-/* Подключи шрифт тут */
+@import url('https://fonts.googleapis.com/css2 ?family=Fira+Sans:wght@700&display=swap');
+
 
 * {
     margin: 0;
@@ -19,6 +20,8 @@ body {
 
     padding-bottom: 120px;
     margin: 0 auto;
+    min-width: 360px;
+    max-width: 1920px;
 
     /* Напиши ограничения тут */
 }
@@ -133,4 +136,29 @@ body {
     gap: 50px;
 }
 
+@media screen and(max-width: 1245px){
+    .header__title{
+        font-size: 100px;
+    }
+}
+@media screen and(max-width: 768px){
+    .header__nav{
+        display:none;
+    }
+    .header__menu{
+        display: block;
+    }
+    .header__overlay{
+        padding: 40px;
+    }
+    .header__title{
+        font-size: 60px;
+    }
+    .header__subtitle{
+        font-size: 18px;
+    }
+    .header{
+        height: 500px;
+    }
+}
 /* Напиши код ниже */
