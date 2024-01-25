@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2 ?family=Fira+Sans:wght@700&display=swap');
-
+@import url(./fonts/fonts.css);
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Fira Sans';
     font-size: 14px;
     color: white;
     background-color: black;
+    max-width: 1920px;
+    min-width: 360px;
 
     display: flex;
     flex-direction: column;
@@ -20,10 +20,6 @@ body {
 
     padding-bottom: 120px;
     margin: 0 auto;
-    min-width: 360px;
-    max-width: 1920px;
-
-    /* Напиши ограничения тут */
 }
 
 .header {
@@ -120,6 +116,63 @@ body {
     line-height: normal;
 }
 
+.gallery {
+    
+}
+
+.gallery__card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    border-radius: 16px;
+}
+
+.gallery__photo {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+
+
+
+.second::after,
+.sixth::after,
+.eleventh::after,
+.twelfth::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 44, 44, 0.5);
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gallery__card-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 50px;
+    box-sizing: border-box;
+
+    font-size: 36px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+
+    width: 80%;
+    height: 100%;
+}
 
 .footer {
     width: 100%;
@@ -136,29 +189,45 @@ body {
     gap: 50px;
 }
 
-@media screen and(max-width: 1245px){
-    .header__title{
+@media screen and (max-width: 1245px) {
+    .header__title {
         font-size: 100px;
     }
+
+    
 }
-@media screen and(max-width: 768px){
-    .header__nav{
-        display:none;
-    }
-    .header__menu{
-        display: block;
-    }
-    .header__overlay{
+
+@media screen and (max-width: 768px) {
+    .header__overlay {
         padding: 40px;
+        gap: 150px;
     }
-    .header__title{
+
+    .header__title {
         font-size: 60px;
     }
-    .header__subtitle{
+
+    .header__subtitle {
         font-size: 18px;
     }
-    .header{
+
+    .header__nav {
+        display: none;
+    }
+
+    .header__menu {
+        display: block;
+    }
+
+    .header {
         height: 500px;
     }
+
+    
+
+    .footer__nav {
+        flex-direction: column;
+        gap: 20px;
+        line-height: 1;
+    }
 }
-/* Напиши код ниже */
