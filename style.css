@@ -60,6 +60,8 @@ body {
     font-family: inherit;
     font-size: 20px;
     text-transform: capitalize;
+    position: relative;
+    transition: 100ms;
 }
 
 .header__menu {
@@ -81,9 +83,18 @@ body {
 .nav__item>span {
     margin: 0 5px;
 }
-
-.nav__link:hover {
-    text-decoration: underline;
+.nav__link::after{
+    content:"";
+    position: absolute;
+    width: 0%;
+    border: 0px solid white;
+    bottom: -2px;
+    left: 0px;
+    transition: 0.3s;
+}
+.nav__link:hover::after {
+    border: 1px solid white;
+    width: 100%;
 }
 
 .author {
@@ -158,6 +169,12 @@ body {
     position: relative;
     z-index: 0;
     border-radius: 16px;
+    transition: 500ms;
+}
+
+.gallery__card:hover{
+    transform: scale(1.03);
+    z-index: 1;
 }
 
 .gallery__photo {
