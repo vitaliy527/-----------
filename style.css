@@ -170,11 +170,13 @@ body {
     z-index: 0;
     border-radius: 16px;
     transition: 500ms;
+    filter:blur(3px)
 }
 
 .gallery__card:hover{
     transform: scale(1.03);
     z-index: 1;
+    filter:blur(0px)
 }
 
 .gallery__photo {
