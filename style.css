@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2 ?family=Fira+Sans:wght@700&display=swap');
-
+@import url(./fonts/fonts.css);
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'Fira Sans';
     font-size: 14px;
     color: white;
     background-color: black;
+    max-width: 1920px;
+    min-width: 360px;
 
     display: flex;
     flex-direction: column;
@@ -20,10 +20,6 @@ body {
 
     padding-bottom: 120px;
     margin: 0 auto;
-    min-width: 360px;
-    max-width: 1920px;
-
-    /* Напиши ограничения тут */
 }
 
 .header {
@@ -64,6 +60,8 @@ body {
     font-family: inherit;
     font-size: 20px;
     text-transform: capitalize;
+    position: relative;
+    transition: 100ms;
 }
 
 .header__menu {
@@ -85,9 +83,18 @@ body {
 .nav__item>span {
     margin: 0 5px;
 }
-
-.nav__link:hover {
-    text-decoration: underline;
+.nav__link::after{
+    content:"";
+    position: absolute;
+    width: 0%;
+    border: 0px solid white;
+    bottom: -2px;
+    left: 0px;
+    transition: 0.3s;
+}
+.nav__link:hover::after {
+    border: 1px solid white;
+    width: 100%;
 }
 
 .author {
@@ -120,6 +127,102 @@ body {
     line-height: normal;
 }
 
+.gallery {
+    max-width: 1244px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(10, 435px);
+   gap: 30px;
+   grid-auto-flow: dense;
+}
+
+.first{
+    grid-row: span 2;
+}
+.second{
+    grid-column: span 2;
+}
+.forth{
+    grid-row: span 2;
+}
+.fifth{
+    grid-column: span 2;
+}
+.sixth{
+    grid-column: span 3;
+}
+.seventh{
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.eleventh{
+    grid-column: span 2;
+}
+.twelfth{
+    grid-column: span 3;
+    grid-row: span 3;
+}
+.gallery__card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 0;
+    border-radius: 16px;
+    transition: 500ms;
+    filter:blur(3px)
+}
+
+.gallery__card:hover{
+    transform: scale(1.03);
+    z-index: 1;
+    filter:blur(0px)
+}
+
+.gallery__photo {
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+}
+
+
+
+
+.second::after,
+.sixth::after,
+.eleventh::after,
+.twelfth::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 44, 44, 0.5);
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gallery__card-description {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 50px;
+    box-sizing: border-box;
+
+    font-size: 36px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+
+    width: 80%;
+    height: 100%;
+}
 
 .footer {
     width: 100%;
@@ -136,29 +239,66 @@ body {
     gap: 50px;
 }
 
-@media screen and(max-width: 1245px){
-    .header__title{
+@media screen and (max-width: 1245px) {
+    .header__title {
         font-size: 100px;
     }
+    .gallery{
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(9, 486px);
+        
+    }
+    .gallery__card{
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+    .gallery__card:nth-last-of-type(2n){
+        grid-column: span 1;
+    }
 }
-@media screen and(max-width: 768px){
-    .header__nav{
-        display:none;
-    }
-    .header__menu{
-        display: block;
-    }
-    .header__overlay{
+
+@media screen and (max-width: 768px) {
+    .header__overlay {
         padding: 40px;
+        gap: 150px;
     }
-    .header__title{
+
+    .header__title {
         font-size: 60px;
     }
-    .header__subtitle{
+
+    .header__subtitle {
         font-size: 18px;
     }
-    .header{
+
+    .header__nav {
+        display: none;
+    }
+
+    .header__menu {
+        display: block;
+    }
+
+    .header {
         height: 500px;
     }
+
+    .gallery{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 357px);
+        padding: 0 30px;
+    }
+    .gallery__card{
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+    .gallery__card-description{
+        font-size: 16px;
+    }
+
+    .footer__nav {
+        flex-direction: column;
+        gap: 20px;
+        line-height: 1;
+    }
 }
-/* Напиши код ниже */
